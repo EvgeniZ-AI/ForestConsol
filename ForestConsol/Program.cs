@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace ForestConsol
 {
@@ -14,7 +15,7 @@ namespace ForestConsol
 
             Console.WriteLine("Вы назначены на должность рубки леса.");
             
-            int wood = 10000;// Колличесто дерева.
+            int wood = 1000000;// Колличесто дерева.
             int axe = 1;// Уровень топора.
 
             int priceAxeSharp = 100; // Цена заточки топора.
@@ -71,6 +72,31 @@ namespace ForestConsol
                 }
 
                 Console.WriteLine($"Колличество дерева : {wood}");
+
+                if (wood >= 1000000)
+                {
+                    Console.WriteLine("готовы заплатить залог за своё особождение в размере - 1000000?");
+                    Console.WriteLine("Для покупки введите '/yes' ");
+
+                    string answer = Console.ReadLine();
+                    if (answer == "/yes")
+                    {
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine("...");
+            Console.WriteLine("Неужели у тебя хватило терпения выбраться из заточения?...");
+            Thread.Sleep(2500);
+            Console.WriteLine("Поздравляю! Но ты серавно не уйдёшь отсюда раз забрался так далеко!");
+            Thread.Sleep(2500);
+            Console.WriteLine("Ты назначен на каторжные работы и должен добывать камень.");
+            Console.WriteLine("Но раз ты такой работяга будем платить тебе 1$ в день)");
+            Console.WriteLine($"Удачи не умереть... {Name}...");
+
+            while (true)
+            {
+                //Второй уровень.
             }
         }
     }
