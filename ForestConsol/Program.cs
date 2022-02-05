@@ -93,11 +93,70 @@ namespace ForestConsol
             Console.WriteLine("Ты назначен на каторжные работы и должен добывать камень.");
             Console.WriteLine("Но раз ты такой работяга будем платить тебе 1$ в день)");
             Console.WriteLine($"Удачи не умереть... {Name}...");
+            Thread.Sleep(3000);
+            Console.Clear();
+            Thread.Sleep(3000);
+            Console.WriteLine("Загрузка уровня...");
+            Thread.Sleep(5000);
+            Console.Clear();
+            Console.WriteLine("Загрузка 1/3");
+            Thread.Sleep(3000);
+            Console.Clear();
+            Console.WriteLine("Загрузка 2/3");
+            Thread.Sleep(3000);
+            Console.Clear();
+            Console.WriteLine("Загрузка 3/3");
+            Thread.Sleep(1500);
+            Console.Clear();
+
+            int cash = 0;
+            int heals = 100;
+            int rock = 0;
+            int dead = 0;
 
             while (true)
             {
-                //Второй уровень.
+                Console.WriteLine($"Ваш Капитал составляет - {cash}.");
+                Console.WriteLine($"Уровень здоровья - {heals}.");
+                Console.WriteLine($"Колличество добытых камней - {rock}.");
+                Console.WriteLine("Чтоб добыть камень введите '/has'. ");
+                Console.WriteLine($"Чтоб подличиться введите '/help'. Стоимость - 8");
+                string commannd = Console.ReadLine();
+
+                if (commannd == "/has")
+                {
+                    rock++;
+                    cash++;
+                    if (cash % 3 == 0)
+                    {
+                        heals--;
+                    }
+                    Console.Clear();
+                }
+                else if (commannd == "/help" && cash >= 20)
+                {
+                    heals += 5;
+                    cash -= 8;
+                    dead++;
+
+                    Console.Clear();
+                    Console.WriteLine("Вы выглядите подозрительно...");
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Комманда введена не верно.");
+                }
+                if (heals <= 0)
+                {
+                    break;
+                }
             }
+            Console.Clear();
+            Console.WriteLine("К сожалению вы умерли на каторге...");//Конец игры.
+            Console.WriteLine("У вас не было и шанса...");
+            Console.WriteLine("Спасибо что сыграли в мою игру. Создатель - Zifir0k.");
+            Console.WriteLine("Я только учусь!");
         }
     }
 }
